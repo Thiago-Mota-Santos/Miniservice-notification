@@ -44,7 +44,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## 🚀 Instalando <MiniService-notification>
 
-Para instalar o (Twitter-clone) , siga estas etapas:
+Para instalar o (MiniService-notification) , siga estas etapas:
 
 
 
