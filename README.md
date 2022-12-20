@@ -22,18 +22,70 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# MiniService-notification
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
-## Installation
 
-```bash
-$ npm install
+![ezgif-4-7e45e85158](https://user-images.githubusercontent.com/75326612/174888825-ac7f17f0-76a7-44f4-9dc7-798fdfef35db.gif)
+
+
+
+Projeto "MiniService-notification" - Um serviço de notifications, com alguns campos (contéudo, category, ID), usando alguns principios de arquitetura construido com Nest e Prisma. 
+
+
+## 💻 Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+* clonar o projeto com para a sua máquina local. (git clone https://github.com/Thiago-Mota-Santos/Miniservice-notification.git)
+* verificar de ter o node.js instalado, juntamente com o gerenciador de pacotes (npm ou yarn)
+
+
+## 🚀 Instalando <MiniService-notification>
+
+Para instalar o (Twitter-clone) , siga estas etapas:
+
+
+
+Windows:
+```
+clonar o projeto com para a sua máquina local. (git clone https://github.com/Thiago-Mota-Santos/Miniservice-notification.git)
+cd Miniservice-notification (acessar a pasta do projeto)
+npm install (para instalar as dependências do node.js na sua máquina)
+npm run start:dev (iniciar o projeto)
+npx prisma studio (para visualizar na interface do prisma as tabelas, dentro do navegador)
+
+ 
 ```
 
-## Running the app
+## ☕ Usando <MiniService-notification>
 
+Para usar (MiniService-notification), siga estas etapas:
+  
+* Utilize alguma ferramenta para fazer as operações HTTP, no caso dessa aplicação : (get, post, patch)
+* Os casos de uso (use-case) para essa aplicação se definem em : 
+   - Criar uma notificação; 
+   - ler uma notificação;
+   - Desmarcar uma notificação como lida;
+   - Cancelar uma notificação;
+   - Contar as notificações;
+   - Buscar uma notificação por ID.
+ * Use algum serviço para mandar as requisições (usei o Insomnia como exemplo):
+   - Criar uma notificação - metódo GET - /notifications - enviar um json com envolvendo a estrutura ("content", "category", "recipientId"),
+ {
+    "content: "content example",
+    "category" "category example",
+    "recipientId" "uuid",
+ }
+  Ps.:: "RecipientId" precisa de um ID único, em softwares como insomnia há como criar um ID único universal
+     
+    - ler uma notificação - metódo PATCH - /notifications/o número do ID da notificação/read
+    (O id da notificação será retornada no json quando você criar uma notificação, use-a se quiser)
+    - Desmarcar uma notificação como lida - metódo PATCH - /notifications/o número do ID da notificação/unread;
+    - Cancelar uma notifificação - metódo PATCH - /notifications/o número do ID da notificação/cancel;
+    - Contar as notificações - metódo GET - /notifications/count/from/o número do ID da notificação/;
+    - Buscar uma notificação como ID - metódo GET - notifications/from/o número do RecipientID da notificação (Quando uma notificação é criada, também há no JSON um 'recipientId' que se diferente do ID, use-o para retornar uma notificação).
 ```bash
 # development
 $ npm run start
